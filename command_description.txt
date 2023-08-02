@@ -1,0 +1,36 @@
+apt update
+apt upgrade
+
+apt install python3
+apt install python3-pip
+
+pip install --break-system-packages fastapi
+pip install --break-system-packages "uvicorn[standard]"
+
+uvicorn main:app --reload
+
+docker build -t tinygrad-container-dev .
+docker compose up
+
+within the container/pod after it is up run 
+RUN uvicorn main:app --reload
+
+to create the yaml files for Kubernetes 
+kompose convert
+
+It produced these yaml files from the docker compose file
+INFO Kubernetes file "api-tcp-service.yaml" created 
+INFO Kubernetes file "api-deployment.yaml" created 
+INFO Kubernetes file "api-claim0-persistentvolumeclaim.yaml" created 
+
+To run these kompose files on kubernetes, run:
+kubectl apply -f api-tcp-service.yaml,api-deployment,api-claim0-persistentvolumeclaim.yaml
+
+
+To run the workflow on the container with tinygrad installed on it, 
+follow the stepss in the workflow.py file.
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python3 get-pip.py
+pip install --break-system-packages request
+python3 workflow.py
+
