@@ -15,7 +15,7 @@ class Job(BaseModel):
     payload: str
 
 
-@app.get("/{nodeName}")
+@app.get("/jobs/{nodeName}")
 def getJob(nodeName:str):
     dir_list = os.listdir("awaiting")
     name = dir_list[0]
