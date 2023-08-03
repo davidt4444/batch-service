@@ -2,6 +2,8 @@ This is just a quick and dirty service that sits in a container/pod on the netwo
 
 Within the service:
 
+A container or pod can find out if there are any jobs in the awaiting directory by sending in a get request (i.e. /jobsCount). The service returns the response {"response":""} where response has the number of jobs in the await folder.
+
 A container or pod sends in a get request with the nodeName for a job to run (i.e. /jobs/{nodeName}), the service takes the first job in the awaiting folder and moves it to a input folder named after the node, it returns the response {"jobName":"ExampleJob", "nodeName":"nodeName", "payload":""} where payload has the code to be run as a part of the job.
 
 A user sends in a post request {"jobName":"ExampleJob", "nodeName":"nodeName", "payload":""} to /jobInput where payload has the code to be run as a part of the job. The post request creates a file in the awaiting jobs folder with the jobName and spits the payload into that file {response:"Job Saved"}.

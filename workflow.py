@@ -11,6 +11,11 @@ class Response(BaseModel):
     response: str
 
 def test():
+    url = 'http://127.0.0.1:8000/jobsCount'
+    response = requests.get(url)
+    result1 = response.json()
+    print(result1)
+
     url = 'http://127.0.0.1:8000/jobInput'
     data_sent = {"jobName":"test","nodeName":"node1","payload":"test"}
     response = requests.post(url, None, data_sent)
