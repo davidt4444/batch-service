@@ -29,6 +29,11 @@ def getJob(nodeName:str):
 
     return result
 
+@app.get("/jobsCount")
+def getJobCount():
+    dir_list = os.listdir("awaiting")
+    return {"response":len(dir_list)}
+
 
 @app.post("/jobInput")
 def postJob(jobInput: Job):
@@ -49,12 +54,13 @@ def postJobOutput(jobOutput: Job):
 def test():
     job = Job(jobName="test", nodeName="testName", payload="Hello World!")
     postJob(job)
+    print(getJobCount())
     job2 = getJob("testName")
     postJobOutput(job2)
     return ""
 
-# def main():
-#     test()
+def main():
+     test()
 
 # if __name__ == "__main__":
 #     main()
