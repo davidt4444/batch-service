@@ -34,3 +34,9 @@ python3 get-pip.py
 pip install --break-system-packages request
 python3 workflow.py
 
+
+apt install links
+RUN pip install --break-system-packages json
+RUN pip install --break-system-packages requests
+RUN pip install --break-system-packages  python-multipart
+

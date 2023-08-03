@@ -1,4 +1,4 @@
-This is just a quick and dirty service that sits in a container/pod on the network as part of a workflow for running jobs. I have an example for what needs to be done on the tinygrad-container to have it call the service for the next job that needs to be run (The file is workflow.py). The url in the file is 127.0.0.1, but you will need to change it according to your network configuration. It was tested on the box with the server. 
+This is just a quick and dirty service that sits in a container/pod on the network as part of a workflow for running jobs. I have an example for what needs to be done on the tinygrad-container to have it call the service for the next job that needs to be run (The file is workflow.py). The url in the file is 127.0.0.1, but you will need to change it according to your network configuration. It was tested on the box with the service. 
 
 Within the service:
 
@@ -30,4 +30,6 @@ INFO Kubernetes file "api-claim0-persistentvolumeclaim.yaml" created
 
 To run these kompose files on kubernetes, run:
 kubectl apply -f api-tcp-service.yaml,api-deployment,api-claim0-persistentvolumeclaim.yaml
+
+I added in a test.html form for entering in test python code to be stored in awaiting. It is a simple form for use in links text based browser and thus submits multipart form data without the need for javascript. This is all for testing that the service is up. You can pull it up by running: links test.html
 

@@ -2,8 +2,9 @@ import os
 import shutil
 
 from typing import Union
+from typing import Annotated
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Form
 from pydantic import BaseModel
 
 app = FastAPI()
@@ -39,6 +40,13 @@ def getJobCount():
 def postJob(jobInput: Job):
     path = "awaiting/"+jobInput.jobName
     with open(path, "w") as f: f.write(jobInput.payload)
+    return {"response":"Job Saved"}
+
+
+@app.post("/jobInputForm")
+def postJobForm(jobName: Annotated[str, Form()], nodeName: Annotated[str, Form()], payload: Annotated[str, Form()]):
+    path = "awaiting/"+jobName
+    with open(path, "w") as f: f.write(payload)
     return {"response":"Job Saved"}
 
 
