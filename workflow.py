@@ -29,10 +29,11 @@ def test():
         result1 = response.json()
         print(result1)
         with open("temp.py", "w") as f: f.write(result1['payload'])
-        # terminal_call = subprocess.Popen(["python3"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-        # output, errors = terminal_call.communicate(input="temp.py")
-        # terminal_call.wait()
 
+        # Since this will be run on the server with the tinygrad code installed it will have more steps
+        # similar to https://github.com/tinygrad/tinygrad/blob/master/.github/workflows/test.yml
+        # This is a test program for the services that runs on the box hosting the services
+        # The service box as such is only guaranteed to haave python3 installed
         call = subprocess.run(["python3", "temp.py"], check=False, text=True)
 
         print(call.stdout) 
