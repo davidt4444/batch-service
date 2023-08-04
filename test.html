@@ -1,18 +1,28 @@
-http://127.0.0.1:8000/jobInputForm
-{"jobName":"test","nodeName":"node1","payload":"test"}
+<link rel="stylesheet" type="text/css" href="./style.css" />
+
+<!-- http://127.0.0.1:8000/jobInputForm
+{"jobName":"test","nodeName":"node1","payload":"test"} -->
 <form class="form-create-job" method="POST" action="http://127.0.0.1:8000/jobInputForm">
     <h2 class="form-create-job-heading">Please enter in the required info for the job.</h2>
     <div>
-        Job Name:<br /> 
+        <div class="label">
+            Job Name: 
+        </div>
         <input class="form-control" type="text" name="jobName" />
     </div>
     <div>
-        Node Name (This isn't really used in the input process for jobs):"<br />
+        <div class="label">
+            Node Name (This isn't really used in the input process for jobs):<br />
+        </div>
         <input class="form-control" type="text" name="nodeName">
     </div>
     <div>
-        Python Code for the job:<br />
+        <div class="label">
+            Python Code for the job:<br />
+        </div>
         <textarea class="form-control" rows="5" cols="33" name="payload"></textarea>
     </div>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
-  </form>
+    <div class="label">
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+    </div>
+</form>

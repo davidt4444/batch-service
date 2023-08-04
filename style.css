@@ -1,0 +1,43 @@
+h1, h2, h3
+{
+    color:grey;
+    font-family:sans-serif;
+}
+a
+{
+    text-decoration:none;
+    color:grey;
+    font-family:sans-serif;
+}
+body
+{
+    background-color:black;
+    color: grey;
+    margin-top:0%;
+}
+input[type=text]{
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+     border-radius: 20px;
+     border: 1px solid grey;
+     color: grey;
+     background-color: black;
+     width: 250px;
+     height: 30px;
+     padding-left: 10px;
+    }
+    
+textarea{
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+     border-radius: 20px;
+     border: 1px solid grey;
+     color: grey;
+     background-color: black;
+     width: 400px;
+     height: 300px;
+     padding-left: 10px;
+    }
+.label{
+    padding:10px;
+}    

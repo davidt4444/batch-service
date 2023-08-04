@@ -40,3 +40,4 @@ RUN pip install --break-system-packages json
 RUN pip install --break-system-packages requests
 RUN pip install --break-system-packages  python-multipart
 
+links test.html
