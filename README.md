@@ -1,4 +1,4 @@
-This is just a quick and dirty service that sits in a container/pod on the network as part of a workflow for running jobs. I have an example for what needs to be done on the tinygrad-container to have it call the service for the next job that needs to be run (The file is workflow.py). The url in the file is 127.0.0.1, but you will need to change it according to your network configuration. It was tested on the box with the service. 
+This is just a quick and dirty service that sits in a container/pod on the network as part of a workflow for running jobs. I have an example for what needs to be done on the tinygrad-container (Or any other generic work job pulling container) to have it call the service for the next job that needs to be run (The file is workflow.py). The url in the file is 127.0.0.1, but you will need to change it according to your network configuration. It was tested on the box with the service.  
 
 Within the service:
 
@@ -11,7 +11,7 @@ A user sends in a post request {"jobName":"ExampleJob", "nodeName":"nodeName", "
 A container or a pod sends in a post request {"jobName":"ExampleJob", "nodeName":"nodeName", "payload":""} to /jobOutput where payload has the output from the job. The post request creates a file in the output folder named after the node with the file having the payload, it returns the response {response:"Output Saved"}.
 
 To build the docker image, run:
-docker build -t tinygrad-container-dev .
+docker build -t batch-container-dev .
 
 To run the image from the compose file, run:
 docker compose up

@@ -30,6 +30,7 @@ def test():
         print(result1)
         with open("temp.py", "w") as f: f.write(result1['payload'])
 
+        # This is written as a generic batch process creater, but 
         # Since this will be run on the server with the tinygrad code installed it will have more steps
         # similar to https://github.com/tinygrad/tinygrad/blob/master/.github/workflows/test.yml
         # This is a test program for the services that runs on the box hosting the services
